@@ -40,7 +40,7 @@ export const LocationRanking = ({ locations }) => {
         animate="show"
         className="space-y-4"
       >
-        {rankingData.map((location, index) => (
+        {rankingData.slice(0,5).map((location, index) => (
           <motion.div
             key={location.id}
             variants={item}

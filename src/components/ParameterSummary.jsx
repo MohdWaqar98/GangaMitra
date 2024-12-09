@@ -43,7 +43,7 @@ export const ParameterSummary = ({ data }) => {
       value: data.ph, 
       unit: 'pH', 
       color: 'bg-emerald-500',
-      icon: <Droplets className="h-6 w-6 text-emerald-500" />,
+      icon: <Droplets className="h-6 w-6 text-white" />,
       gradient: 'from-emerald-500 to-emerald-400'
     },
     { 
@@ -51,7 +51,7 @@ export const ParameterSummary = ({ data }) => {
       value: data.dissolvedOxygen, 
       unit: 'mg/L', 
       color: 'bg-blue-500',
-      icon: <Wind className="h-6 w-6 text-blue-500" />,
+      icon: <Wind className="h-6 w-6 text-white" />,
       gradient: 'from-blue-500 to-blue-400'
     },
     { 
@@ -59,7 +59,7 @@ export const ParameterSummary = ({ data }) => {
       value: data.temperature, 
       unit: '°C', 
       color: 'bg-amber-500',
-      icon: <Thermometer className="h-6 w-6 text-amber-500" />,
+      icon: <Thermometer className="h-6 w-6 text-white" />,
       gradient: 'from-amber-500 to-amber-400'
     },
     { 
@@ -67,7 +67,7 @@ export const ParameterSummary = ({ data }) => {
       value: data.totalDissolvedSolids, 
       unit: 'mg/L', 
       color: 'bg-purple-500',
-      icon: <Scale className="h-6 w-6 text-purple-500" />,
+      icon: <Scale className="h-6 w-6 text-white" />,
       gradient: 'from-purple-500 to-purple-400'
     }
   ];

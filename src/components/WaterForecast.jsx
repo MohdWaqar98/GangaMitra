@@ -71,12 +71,12 @@ export const WaterForecast = ({ location }) => {
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md"
+      className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md"
     >
       <div className="flex items-center justify-between mb-6">
         <h2 className="text-xl font-semibold text-sky-900 dark:text-sky-100">Water Quality Forecast</h2>
-        <div className="flex items-center space-x-2">
-          <button
+        <div className="flex items-center space-x-2 space-y-10">
+          {/* <button
             onClick={scrollLeft}
             disabled={activeIndex === 0}
             className="p-1 rounded-full hover:bg-sky-50 dark:hover:bg-sky-900/30 disabled:opacity-50"
@@ -89,7 +89,7 @@ export const WaterForecast = ({ location }) => {
             className="p-1 rounded-full hover:bg-sky-50 dark:hover:bg-sky-900/30 disabled:opacity-50"
           >
             <ChevronRight className="h-5 w-5 text-sky-600 dark:text-sky-400" />
-          </button>
+          </button> */}
         </div>
       </div>
 
@@ -102,7 +102,7 @@ export const WaterForecast = ({ location }) => {
             return (
               <div
                 key={index}
-                className={`flex-shrink-0 w-32 p-4 rounded-lg cursor-pointer transition-all ${
+                className={`flex-shrink-0 w-32 p-3 mt-4 rounded-lg cursor-pointer transition-all ${
                   activeIndex === index
                     ? 'bg-sky-100 dark:bg-sky-900/50 ring-2 ring-sky-500'
                     : 'bg-sky-50 dark:bg-sky-900/30 hover:bg-sky-100 dark:hover:bg-sky-900/40'

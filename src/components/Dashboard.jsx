@@ -8,7 +8,6 @@ import { ParameterSummary } from './ParameterSummary';
 import { LocationRanking } from './LocationRanking';
 import { WaterForecast } from './WaterForecast';
 import { ChatBot } from './ChatBot';
-import { Navbar } from './Navbar';
 import { Footer } from './Footer';
 import { locations, generateMockData } from '../utils/mockData';
 import { useTheme } from '../context/ThemeContext';
@@ -71,7 +70,6 @@ export const Dashboard = () => {
 
   return (
     <div className={`min-h-screen flex flex-col ${isDarkMode ? 'dark bg-gray-900' : 'bg-sky-50'}`}>
-      <Navbar />
       
       <AnimatePresence>
         {isLoaded && (
@@ -88,7 +86,7 @@ export const Dashboard = () => {
             >
               {/* Location Selection */}
               <motion.div 
-                className="lg:col-span-4 xl:col-span-3 order-2 lg:order-1"
+                className="lg:col-span-4 xl:col-span-4 order-2 lg:order-1"
                 whileHover={{ scale: 1.01 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
@@ -116,7 +114,7 @@ export const Dashboard = () => {
               {/* Parameters Summary */}
               <motion.div 
                 variants={itemVariants}
-                className="lg:col-span-8 xl:col-span-9 order-1 lg:order-2"
+                className="lg:col-span-8 xl:col-span-8 order-1 lg:order-2"
               >
                 <ParameterSummary data={data} />
               </motion.div>

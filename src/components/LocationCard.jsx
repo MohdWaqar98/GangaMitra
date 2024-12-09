@@ -5,10 +5,10 @@ import { Card } from './ui/Card';
 export const LocationCard = ({ location, isSelected, onClick }) => {
   return (
     <Card 
-      className={`p-3 cursor-pointer transition-all ${
+      className={`p-2  cursor-pointer transition-all ${
         isSelected 
-          ? 'ring-2 ring-sky-500 bg-sky-50 dark:bg-sky-900/30' 
-          : 'hover:bg-sky-50 dark:hover:bg-sky-900/20'
+          ? ' bg-sky-400/30 dark:bg-sky-900/10' 
+          : 'hover:bg-sky-100 dark:hover:bg-sky-900/20 dark:bg-sky-700/30'
       }`}
       onClick={onClick}
     >

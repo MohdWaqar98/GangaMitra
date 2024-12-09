@@ -8,7 +8,7 @@ export const Playground = () => {
     ph: 7.0,
     dissolvedOxygen: 6.0,
     temperature: 25.0,
-    tds: 200
+    tds: 15
   });
 
   const [simulationData, setSimulationData] = useState([]);
@@ -17,13 +17,13 @@ export const Playground = () => {
   const startSimulation = () => {
     setIsSimulating(true);
     const baseData = [];
-    for (let i = 0; i < 24; i++) {
+    for (let i = 0; i < 10; i++) {
       baseData.push({
         time: i,
-        ph: parameters.ph + (Math.random() - 0.5) * 0.5,
+        ph: parameters.ph + (Math.random() - 0.7) * 0.1,
         dissolvedOxygen: parameters.dissolvedOxygen + (Math.random() - 0.5) * 1,
         temperature: parameters.temperature + (Math.random() - 0.5) * 2,
-        tds: parameters.tds + (Math.random() - 0.5) * 20
+        tds: parameters.tds + (Math.random() - 0.5) * 1
       });
     }
     setSimulationData(baseData);
@@ -164,17 +164,17 @@ export const Playground = () => {
                 {simulationData.length > 0 ? (
                   <ResponsiveContainer width="100%" height="100%">
                     <LineChart data={simulationData}>
-                      <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+                      <CartesianGrid strokeDasharray="1 1" strokeWidth={1} stroke="#e5e7eb" />
                       <XAxis 
                         dataKey="time" 
                         label={{ value: 'Time (hours)', position: 'bottom' }}
                       />
                       <YAxis />
                       <Tooltip />
-                      <Line type="monotone" dataKey="ph" stroke="#3b82f6" name="pH" />
-                      <Line type="monotone" dataKey="dissolvedOxygen" stroke="#10b981" name="DO" />
-                      <Line type="monotone" dataKey="temperature" stroke="#f59e0b" name="Temp" />
-                      <Line type="monotone" dataKey="tds" stroke="#8b5cf6" name="TDS" />
+                      <Line type="monotone" dataKey="ph" stroke="#3b82f6" strokeWidth={5}  name="pH" />
+                      <Line type="monotone" dataKey="dissolvedOxygen" stroke="#10b981" strokeWidth={5} name="DO" />
+                      <Line type="monotone" dataKey="temperature" stroke="#f59e0b" strokeWidth={5} name="Temp" />
+                      <Line type="monotone" dataKey="tds" stroke="#8b5cf6" strokeWidth={5} name="TDS" />
                     </LineChart>
                   </ResponsiveContainer>
                 ) : (

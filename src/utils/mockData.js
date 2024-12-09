@@ -1,3 +1,5 @@
+import { i, u } from "framer-motion/client";
+
 export const locations = [
   {
     id: '1',
@@ -23,6 +25,32 @@ export const locations = [
     coordinates: { lat: 25.5941, lng: 85.1376 },
     riverSection: 'Lower Ganga',
   },
+  {
+    id: '5',
+    name: 'Kolkata',
+    coordinates: { lat: 22.5726, lng: 88.3639 },
+    riverSection: 'Lower Ganga',
+  },
+  {
+    id: '6',
+    name: 'Diamond Harbour',
+    coordinates: { lat: 22.1814, lng: 88.1837 },
+    riverSection: 'Lower Ganga',
+  },
+  {
+    id: '7',
+    name: 'Farakka',
+    coordinates: { lat: 24.8167, lng: 87.9000 },
+    riverSection: 'Middle Ganga',
+  },
+  {
+    uid: '8',
+    name: 'Kanpur',
+    coordinates: { lat: 26.4499, lng: 80.3319 },
+    riverSection: 'Middle Ganga',
+  },
+
+  
 ];
 
 export const generateMockData = (locationId) => {

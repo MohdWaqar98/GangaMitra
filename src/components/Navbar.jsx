@@ -18,20 +18,20 @@ export const Navbar = () => {
         <div className="flex justify-between items-center">
           <div className="flex items-center space-x-8">
             <div className="flex items-center space-x-3">
-              <div className="bg-sky-100 dark:bg-sky-900 p-2 rounded-lg">
+              <a href='/' className="bg-sky-100 dark:bg-sky-900 p-2 rounded-lg">
                 <Droplets className="h-6 w-6 sm:h-8 sm:w-8 text-sky-600 dark:text-sky-400" />
-              </div>
-              <h1 className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-sky-600 to-sky-400 bg-clip-text text-transparent dark:from-sky-400 dark:to-sky-300">
+              </a>
+              <a href='/' className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-sky-600 to-sky-400 bg-clip-text text-transparent dark:from-sky-400 dark:to-sky-300">
                 Ganga Mitra
-              </h1>
+              </a>
             </div>
             
             {/* Desktop Navigation */}
             <nav className="hidden md:flex space-x-8">
-              <a href="#" className="text-sky-900 dark:text-sky-100 hover:text-sky-700 dark:hover:text-sky-300 font-medium px-3 py-2 rounded-lg hover:bg-sky-50 dark:hover:bg-sky-900 transition-colors">
+              <a href="/playground" className="text-sky-900 dark:text-sky-100 hover:text-sky-700 dark:hover:text-sky-300 font-medium px-3 py-2 rounded-lg hover:bg-sky-50 dark:hover:bg-sky-900 transition-colors">
                 Playground
               </a>
-              <a href="#" className="text-sky-900 dark:text-sky-100 hover:text-sky-700 dark:hover:text-sky-300 font-medium px-3 py-2 rounded-lg hover:bg-sky-50 dark:hover:bg-sky-900 transition-colors">
+              <a href="/about" className="text-sky-900 dark:text-sky-100 hover:text-sky-700 dark:hover:text-sky-300 font-medium px-3 py-2 rounded-lg hover:bg-sky-50 dark:hover:bg-sky-900 transition-colors">
                 Ganga Theory
               </a>
             </nav>
