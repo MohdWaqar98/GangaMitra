@@ -22,16 +22,16 @@ const gangaRiver = {
   geometry: {
     type: 'LineString',
     coordinates: [
-      [78.2676, 30.0869], // Rishikesh
-      [78.1642, 29.9457], // Haridwar
-      [79.7200, 28.8000], // Moradabad
-      [80.5000, 27.5000], // Approximate middle point
-      [81.8300, 26.8500], // Lucknow region
-      [82.9739, 25.3176], // Varanasi
-      [84.6700, 25.7500], // Patna approach
-      [85.1376, 25.5941], // Patna
-      [87.0000, 24.5000], // Bhagalpur region
-      [88.3639, 22.5726]  // Kolkata (end point)
+      [25.519940, 83.900847], // Rishikesh
+      [25.281489, 87.247598], // Haridwar
+      [24.100623, 88.243263], // Moradabad
+      [22.183389, 88.186222], // Approximate middle point
+      [29.373472, 78.040972], // Lucknow region
+      [29.641083, 78.101750], // Varanasi
+      [25.587222, 83.605361], // Patna approach
+      [25.733210, 84.622470], // Patna
+      [25.292498,  87.631830], // Bhagalpur region
+      [25.054889, 87.838639]  // Kolkata (end point)
     ]
   }
 };
