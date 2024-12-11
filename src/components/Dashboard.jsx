@@ -134,7 +134,7 @@ export const Dashboard = () => {
                   data={trendData}
                   parameter={selectedParameter}
                   setParameter={setSelectedParameter}
-                  unit={selectedParameter === 'ph' ? 'pH' : selectedParameter === 'temperature' ? '°C' : 'mg/L'}
+                  unit={selectedParameter === 'ph' ? 'pH' : selectedParameter === 'totalcoliform' ? 'MPN/100ml' : 'mg/L'}
                 />
               </motion.div>
               <motion.div 

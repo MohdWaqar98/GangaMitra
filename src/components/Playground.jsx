@@ -7,8 +7,8 @@ export const Playground = () => {
   const [parameters, setParameters] = useState({
     ph: 7.0,
     dissolvedOxygen: 6.0,
-    temperature: 25.0,
-    tds: 15
+    BOD: 25.0,
+    totalcoliform: 15
   });
 
   const [simulationData, setSimulationData] = useState([]);
@@ -22,8 +22,8 @@ export const Playground = () => {
         time: i,
         ph: parameters.ph + (Math.random() - 0.7) * 0.1,
         dissolvedOxygen: parameters.dissolvedOxygen + (Math.random() - 0.5) * 1,
-        temperature: parameters.temperature + (Math.random() - 0.5) * 2,
-        tds: parameters.tds + (Math.random() - 0.5) * 1
+        BOD: parameters.BOD + (Math.random() - 0.5) * 2,
+        totalcoliform: parameters.totalcoliform + (Math.random() - 0.5) * 1
       });
     }
     setSimulationData(baseData);
@@ -54,8 +54,8 @@ export const Playground = () => {
       unit: 'mg/L'
     },
     {
-      id: 'temperature',
-      label: 'Temperature',
+      id: 'BOD',
+      label: 'BOD',
       min: 0,
       max: 40,
       step: 0.5,
@@ -63,8 +63,8 @@ export const Playground = () => {
       unit: '°C'
     },
     {
-      id: 'tds',
-      label: 'Total Dissolved Solids',
+      id: 'totalcoliform',
+      label: 'Total Coliform',
       min: 0,
       max: 1000,
       step: 10,
@@ -173,8 +173,8 @@ export const Playground = () => {
                       <Tooltip />
                       <Line type="monotone" dataKey="ph" stroke="#3b82f6" strokeWidth={5}  name="pH" />
                       <Line type="monotone" dataKey="dissolvedOxygen" stroke="#10b981" strokeWidth={5} name="DO" />
-                      <Line type="monotone" dataKey="temperature" stroke="#f59e0b" strokeWidth={5} name="Temp" />
-                      <Line type="monotone" dataKey="tds" stroke="#8b5cf6" strokeWidth={5} name="TDS" />
+                      <Line type="monotone" dataKey="BOD" stroke="#f59e0b" strokeWidth={5} name="BOD" />
+                      <Line type="monotone" dataKey="totalcoliform" stroke="#8b5cf6" strokeWidth={5} name="Total Coliform" />
                     </LineChart>
                   </ResponsiveContainer>
                 ) : (

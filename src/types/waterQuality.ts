@@ -2,13 +2,13 @@ export interface WaterQualityData {
   location: string;
   ph: number;
   dissolvedOxygen: number;
-  temperature: number;
+  BOD: number;
   turbidity: number;
   conductivity: number;
   timestamp: string;
   waterLevel: number;
   flowRate: number;
-  totalDissolvedSolids: number;
+  totalcoliform: number;
 }
 
 export interface LocationData {

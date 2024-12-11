@@ -16,9 +16,9 @@ export const WaterForecast = ({ location }) => {
         date,
         quality: Math.random() > 0.5 ? 'good' : Math.random() > 0.5 ? 'moderate' : 'poor',
         ph: 6.5 + Math.random() * 2,
-        temperature: 20 + Math.random() * 10,
+        BOD: 20 + Math.random() * 10,
         dissolvedOxygen: 4 + Math.random() * 4,
-        tds: 150 + Math.random() * 250
+        totalcoliform: 150 + Math.random() * 250
       };
     });
   };
@@ -124,7 +124,7 @@ export const WaterForecast = ({ location }) => {
                   <div className="my-2">{getQualityIcon(forecast.quality)}</div>
                   <div className="text-xs text-sky-800 dark:text-sky-200 space-y-1">
                     <p>pH: {forecast.ph.toFixed(1)}</p>
-                    <p>Temp: {forecast.temperature.toFixed(1)}°C</p>
+                    <p>B.O.D: {forecast.BOD.toFixed(1)} mg/L</p>
                   </div>
                 </div>
               </div>
@@ -143,9 +143,9 @@ export const WaterForecast = ({ location }) => {
             </p>
           </div>
           <div className="p-3 bg-white dark:bg-gray-800 rounded-lg">
-            <p className="text-sm text-sky-600 dark:text-sky-400">Temperature</p>
+            <p className="text-sm text-sky-600 dark:text-sky-400">B.O.D</p>
             <p className="text-lg font-semibold text-sky-900 dark:text-sky-100">
-              {forecasts[activeIndex].temperature.toFixed(1)}°C
+              {forecasts[activeIndex].BOD.toFixed(1)} mg/L
             </p>
           </div>
           <div className="p-3 bg-white dark:bg-gray-800 rounded-lg">
@@ -155,9 +155,9 @@ export const WaterForecast = ({ location }) => {
             </p>
           </div>
           <div className="p-3 bg-white dark:bg-gray-800 rounded-lg">
-            <p className="text-sm text-sky-600 dark:text-sky-400">TDS</p>
+            <p className="text-sm text-sky-600 dark:text-sky-400">Total Coliform</p>
             <p className="text-lg font-semibold text-sky-900 dark:text-sky-100">
-              {forecasts[activeIndex].tds.toFixed(0)} mg/L
+              {forecasts[activeIndex].totalcoliform.toFixed(0)} MPN/100ml
             </p>
           </div>
         </div>

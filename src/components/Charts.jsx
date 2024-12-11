@@ -14,8 +14,8 @@ export const Charts = ({ data, parameter, setParameter, unit }) => {
     switch (parameter) {
       case 'ph': return '#0284c7';
       case 'dissolvedOxygen': return '#0891b2';
-      case 'temperature': return '#0369a1';
-      case 'totalDissolvedSolids': return '#0ea5e9';
+      case 'BOD': return '#0369a1';
+      case 'totalcoliform': return '#0ea5e9';
       default: return '#0284c7';
     }
   };
