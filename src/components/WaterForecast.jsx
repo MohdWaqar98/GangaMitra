@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Cloud, Sun, CloudRain, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Cloud, Sun, CloudRain, ChevronLeft, ChevronRight, SmilePlus, Smile, Waves, Annoyed, Angry } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export const WaterForecast = ({ location }) => {
@@ -32,11 +32,11 @@ export const WaterForecast = ({ location }) => {
   const getQualityIcon = (quality) => {
     switch (quality) {
       case 'good':
-        return <Sun className="h-6 w-6 text-emerald-500" />;
+        return <Smile className="h-6 w-6 text-emerald-500" />;
       case 'moderate':
-        return <Cloud className="h-6 w-6 text-amber-500" />;
+        return <Annoyed className="h-6 w-6 text-amber-500" />;
       case 'poor':
-        return <CloudRain className="h-6 w-6 text-red-500" />;
+        return <Angry className="h-6 w-6 text-red-500" />;
       default:
         return null;
     }

@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Calendar, Clock, Droplets, Wind, Thermometer, Scale } from 'lucide-react';
+import { Calendar, Clock, Droplets, Wind, Thermometer, Scale, Biohazard, Factory } from 'lucide-react';
 
 export const ParameterSummary = ({ data }) => {
   const date = new Date(data.timestamp);
@@ -55,19 +55,19 @@ export const ParameterSummary = ({ data }) => {
       gradient: 'from-blue-500 to-blue-400'
     },
     { 
-      label: 'Temperature', 
-      value: data.temperature, 
-      unit: '°C', 
+      label: 'B.O.D', 
+      value: data.BOD, 
+      unit: 'mg/L', 
       color: 'bg-amber-500',
-      icon: <Thermometer className="h-6 w-6 text-white" />,
+      icon: <Biohazard className="h-6 w-6 text-white" />,
       gradient: 'from-amber-500 to-amber-400'
     },
     { 
-      label: 'TDS', 
-      value: data.totalDissolvedSolids, 
-      unit: 'mg/L', 
+      label: 'Total Coliform', 
+      value: data.totalcoliform, 
+      unit: 'MPN/100ml', 
       color: 'bg-purple-500',
-      icon: <Scale className="h-6 w-6 text-white" />,
+      icon: <Factory className="h-6 w-6 text-white" />,
       gradient: 'from-purple-500 to-purple-400'
     }
   ];
@@ -124,7 +124,7 @@ export const ParameterSummary = ({ data }) => {
                 </motion.div>
               </div>
               <div className="flex items-baseline space-x-1">
-                <span className="text-3xl font-bold text-sky-900 dark:text-sky-100">
+                <span className="text-2xl font-bold text-sky-900 dark:text-sky-100">
                   {param.value.toFixed(1)}
                 </span>
                 <span className="text-sm text-sky-600 dark:text-sky-400">{param.unit}</span>

@@ -6,8 +6,8 @@ export const Charts = ({ data, parameter, setParameter, unit }) => {
   const parameters = [
     { value: 'ph', label: 'pH Level' },
     { value: 'dissolvedOxygen', label: 'Dissolved Oxygen' },
-    { value: 'temperature', label: 'Temperature' },
-    { value: 'totalDissolvedSolids', label: 'Total Dissolved Solids' }
+    { value: 'BOD', label: 'B.O.D' },
+    { value: 'totalcoliform', label: 'Total Coliform' }
   ];
 
   const getParameterColor = () => {
