@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Droplets, Users, LineChart, Shield, Globe, Heart } from 'lucide-react';
 
 export const About = () => {
+  const [expanded, setExpanded] = useState(null);
+
   const features = [
     {
       icon: <Droplets className="h-6 w-6 text-sky-500" />,
@@ -44,8 +46,11 @@ export const About = () => {
       title: 'Namami Gange Project',
       description: 'The Namami Gange Project is an ambitious initiative launched by the Government of India to clean and rejuvenate the Ganga River. It aims to reduce pollution levels, improve water quality, and conserve the river\'s ecosystem. The project focuses on sewage treatment, solid waste management, and promoting sustainable practices along the river. It is a long-term effort to restore the river to its pristine state and ensure clean water for future generations.'
     } 
-    
   ];
+
+  const handleReadMore = (index) => {
+    setExpanded(expanded === index ? null : index);
+  };
 
   const teamMembers = [
     {
@@ -81,7 +86,7 @@ export const About = () => {
               transition={{ delay: 0.2 }}
               className="text-4xl font-bold text-sky-900 dark:text-sky-100 sm:text-5xl md:text-6xl"
             >
-              Protecting the Sacred Ganges
+              Information Chaos
             </motion.h1>
             <motion.p 
               initial={{ y: 20, opacity: 0 }}
@@ -89,7 +94,7 @@ export const About = () => {
               transition={{ delay: 0.4 }}
               className="mt-6 max-w-2xl mx-auto text-xl text-sky-600 dark:text-sky-400"
             >
-              Leveraging technology to monitor, analyze, and preserve the water quality of India's holiest river.
+             The project aims to provide real-time monitoring of the Ganga river's cleanliness and weather forecasts for timely notifications and action.
             </motion.p>
           </div>
         </div>
@@ -106,7 +111,7 @@ export const About = () => {
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-sky-900 dark:text-sky-100">Our Mission</h2>
             <p className="mt-4 text-lg text-sky-600 dark:text-sky-400">
-              Empowering environmental conservation through data-driven insights
+            "Our mission is to keep the Ganga river clean and ensure the health of all."
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -125,8 +130,16 @@ export const About = () => {
                   {feature.title}
                 </h3>
                 <p className="text-sky-600 dark:text-sky-400">
-                  {feature.description}
+                  {expanded === index
+                    ? feature.description
+                    : feature.description.substring(0, 150) + '...'}
                 </p>
+                <button
+                  onClick={() => handleReadMore(index)}
+                  className="text-sky-500 mt-2"
+                >
+                  {expanded === index ? 'Read Less' : 'Read More'}
+                </button>
               </motion.div>
             ))}
           </div>
@@ -140,46 +153,7 @@ export const About = () => {
         transition={{ delay: 0.8 }}
         className="py-16"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-sky-900 dark:text-sky-100">Our Team</h2>
-            <p className="mt-4 text-lg text-sky-600 dark:text-sky-400">
-              Dedicated experts working towards a cleaner Ganges
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {teamMembers.map((member, index) => (
-              <motion.div
-                key={member.name}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 * index }}
-                className="text-center"
-              >
-                <div className="relative w-48 h-48 mx-auto mb-4">
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="rounded-full object-cover w-full h-full"
-                  />
-                </div>
-                <h3 className="text-xl font-semibold text-sky-900 dark:text-sky-100">
-                  {member.name}
-                </h3>
-                <p className="text-sky-600 dark:text-sky-400">{member.role}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </motion.section>
-
-      {/* Call to Action */}
-      <motion.section 
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1 }}
-        className="py-16 bg-sky-600 dark:bg-sky-800"
-      >
+       
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="flex items-center justify-center mb-8">
             <Heart className="h-12 w-12 text-white" />
@@ -188,11 +162,9 @@ export const About = () => {
             Join Us in Our Mission
           </h2>
           <p className="text-xl text-sky-100 mb-8 max-w-2xl mx-auto">
-            Together, we can make a difference in preserving the Ganges for future generations.
+          "Let us all come together in this service of cleaning the Ganga and make it clean."
           </p>
-          <button className="bg-white text-sky-600 px-8 py-3 rounded-lg font-semibold hover:bg-sky-50 transition-colors">
-            Get Involved
-          </button>
+         
         </div>
       </motion.section>
     </div>

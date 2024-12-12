@@ -1,5 +1,5 @@
 import React from 'react';
-import { Activity } from 'lucide-react';
+import {gangamitralogo } from 'assets';
 
 export const Header = () => {
   return (
@@ -7,7 +7,7 @@ export const Header = () => {
       <div className="max-w-7xl mx-auto px-4 py-6">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-4">
-            <Activity className="h-8 w-8 text-white" />
+           <img src="src/assets/gangamitralogo.png" alt="" />
             <div>
               <h1 className="text-2xl font-bold text-white">Ganga Water Quality Monitor</h1>
               <p className="text-sm text-sky-100">Real-time monitoring and analysis system</p>

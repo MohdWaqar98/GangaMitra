@@ -10,10 +10,23 @@ export const Footer = () => {
   ];
 
   const socialLinks = [
-    { icon: <Github className="h-5 w-5" />, href: '#', label: 'GitHub' },
-    { icon: <Twitter className="h-5 w-5" />, href: '#', label: 'Twitter' },
-    { icon: <Mail className="h-5 w-5" />, href: '#', label: 'Email' }
+    { 
+      icon: <Github className="h-5 w-5" />, 
+      href: 'https://github.com/whokrishnansh', 
+      label: 'GitHub' 
+    },
+    { 
+      icon: <Twitter className="h-5 w-5" />, 
+      href: 'https://x.com/whokrishnansh?t=u65AagY8gNU8GqVnkgK6DQ&s=09', 
+      label: 'Twitter' 
+    },
+    { 
+      icon: <Mail className="h-5 w-5" />, 
+      href: 'contactkrishnansh@gmail.com', 
+      label: 'Email' 
+    }
   ];
+  
 
   return (
     <footer className="bg-sky-50/50 dark:bg-gray-800/50 border-t border-sky-100 dark:border-gray-700">

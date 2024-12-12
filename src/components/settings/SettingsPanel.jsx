@@ -9,8 +9,7 @@ const settingsGroups = [
     icon: <Bell className="h-5 w-5" />,
     items: [
       { id: 'email', label: 'Email Notifications', type: 'toggle', value: true },
-      { id: 'alerts', label: 'Quality Alerts', type: 'toggle', value: true },
-      { id: 'reports', label: 'Daily Reports', type: 'toggle', value: false }
+      
     ]
   },
   {
@@ -18,7 +17,7 @@ const settingsGroups = [
     icon: <Eye className="h-5 w-5" />,
     items: [
       { id: 'theme', label: 'Dark Mode', type: 'toggle', value: false },
-      { id: 'density', label: 'Compact View', type: 'toggle', value: false }
+     
     ]
   }
 ];
