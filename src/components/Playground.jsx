@@ -180,6 +180,16 @@ export const Playground = () => {
                 </motion.div>
               ))}
             </div>
+            <div className="bg-gray-700 w-full max-w-md mx-auto p-6 rounded-lg flex items-center shadow-lg h-60 mt-52 mb-24">
+      <div className="flex flex-col">
+        <h1 className="text-green-500 text-5xl font-bold mb-2">Good!</h1>
+        <p className="text-white text-xl mb-4">Your scenario turns out to be good for River Ganga!</p>
+        <p className="text-white text-lg font-semibold">Resultant Class : <span className="text-white font-bold">B</span></p>
+      </div>
+      <div className="ml-auto flex items-center justify-center">
+          <img src="src\assets\good.png" alt="" width={250} height={250}/>
+      </div>
+    </div>
 
             {/* Simulation Results */}
             <div>
