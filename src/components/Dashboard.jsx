@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { LocationCard } from './LocationCard';
-import { LocationSearch } from './LocationSearch';
 import { Map } from './Map';
 import { Charts } from './Charts';
 import { ParameterSummary } from './ParameterSummary';
@@ -17,7 +16,6 @@ export const Dashboard = () => {
   const [selectedLocation, setSelectedLocation] = useState(locations[0].id);
   const [data, setData] = useState(null);
   const [trendData, setTrendData] = useState([]);
-  const [searchTerm, setSearchTerm] = useState('');
   const [selectedParameter, setSelectedParameter] = useState('ph');
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -36,11 +34,6 @@ export const Dashboard = () => {
 
     return () => clearInterval(interval);
   }, [selectedLocation, selectedParameter]);
-
-  const filteredLocations = locations.filter(location =>
-    location.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    location.riverSection.toLowerCase().includes(searchTerm.toLowerCase())
-  );
 
   if (!data) return null;
 
@@ -91,9 +84,12 @@ export const Dashboard = () => {
                 transition={{ type: "spring", stiffness: 300 }}
               >
                 <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md h-[450px]">
-                  <LocationSearch onSearch={setSearchTerm} />
+                  {/* Added Monitoring Station Text */}
+                  <h2 className="text-xl font-semibold text-gray-800 dark:text-gray-200 pl-20">
+                    Monitoring Station
+                  </h2>
                   <div className="mt-4 space-y-2 h-[calc(100%-4rem)] overflow-y-auto custom-scrollbar">
-                    {filteredLocations.map((location, index) => (
+                    {locations.map((location, index) => (
                       <motion.div
                         key={location.id}
                         initial={{ opacity: 0, x: -20 }}
@@ -151,9 +147,10 @@ export const Dashboard = () => {
             </motion.div>
 
             {/* Third Row: Location Ranking and Forecast */}
+            
             <motion.div 
               variants={itemVariants}
-              className="grid grid-cols-1 lg:grid-cols-2 gap-6"
+              className="grid grid-cols-1 lg:grid-cols-2 gap-6 "
             >
               <motion.div
                 whileHover={{ scale: 1.01 }}
