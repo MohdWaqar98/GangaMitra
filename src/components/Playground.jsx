@@ -8,7 +8,7 @@ export const Playground = () => {
     ph: 7.0,
     dissolvedOxygen: 6.0,
     BOD: 25.0,
-    totalcoliform: 15
+    totalcoliform: 15,
   });
 
   const [simulationData, setSimulationData] = useState([]);
@@ -23,7 +23,7 @@ export const Playground = () => {
         ph: parameters.ph + (Math.random() - 0.7) * 0.1,
         dissolvedOxygen: parameters.dissolvedOxygen + (Math.random() - 0.5) * 1,
         BOD: parameters.BOD + (Math.random() - 0.5) * 2,
-        totalcoliform: parameters.totalcoliform + (Math.random() - 0.5) * 1
+        totalcoliform: parameters.totalcoliform + (Math.random() - 0.5) * 1,
       });
     }
     setSimulationData(baseData);
@@ -35,14 +35,19 @@ export const Playground = () => {
   };
 
   const parameterControls = [
-    { 
+    {
       id: 'ph',
       label: 'pH Level',
       min: 0,
       max: 14,
       step: 0.1,
       icon: <Beaker className="h-5 w-5 text-sky-500" />,
-      unit: 'pH'
+      unit: 'pH',
+      roast: (value) => {
+        if (value < 5.5) return "Looks like you’re brewing acid soup! River critters won’t RSVP to this party.";
+        if (value > 9.0) return "Is this a river or a bleach bath? Even fish need pH balance!";
+        return null;
+      },
     },
     {
       id: 'dissolvedOxygen',
@@ -50,8 +55,13 @@ export const Playground = () => {
       min: 0,
       max: 12,
       step: 0.1,
-      icon: <Wind className="h-5 w-5 text-sky-500" />,
-      unit: 'mg/L'
+      icon: <Wind className="h-5 w-5 text-green-500" />,
+      unit: 'mg/L',
+      roast: (value) => {
+        if (value < 3) return "You might kill all the fishes! Hope you weren’t planning on a fish fry.";
+        if (value > 11) return "Wish it could be practically true 😊";
+        return null;
+      },
     },
     {
       id: 'BOD',
@@ -59,8 +69,13 @@ export const Playground = () => {
       min: 0,
       max: 40,
       step: 0.5,
-      icon: <Thermometer className="h-5 w-5 text-sky-500" />,
-      unit: '°C'
+      icon: <Thermometer className="h-5 w-5 text-yellow-500" />,
+      unit: 'mg/L',
+      roast: (value) => {
+        if (value > 25) return "Congratulations! You’ve made a river spa... for bacteria.";
+        if (value < 2) return "Wish it could be practically true 😊";
+        return null;
+      },
     },
     {
       id: 'totalcoliform',
@@ -68,9 +83,13 @@ export const Playground = () => {
       min: 0,
       max: 1000,
       step: 10,
-      icon: <Scale className="h-5 w-5 text-sky-500" />,
-      unit: 'mg/L'
-    }
+      icon: <Scale className="h-5 w-5 text-purple-500" />,
+      unit: 'MPN/100m',
+      roast: (value) => {
+        if (value > 950) return "This river’s got more germs than a toddler’s toy box! Swim at your own risk.";
+        return null;
+      },
+    },
   ];
 
   return (
@@ -141,9 +160,9 @@ export const Playground = () => {
                     max={control.max}
                     step={control.step}
                     value={parameters[control.id]}
-                    onChange={(e) => setParameters(prev => ({
+                    onChange={(e) => setParameters((prev) => ({
                       ...prev,
-                      [control.id]: parseFloat(e.target.value)
+                      [control.id]: parseFloat(e.target.value),
                     }))}
                     className="w-full h-2 bg-sky-200 dark:bg-gray-600 rounded-lg appearance-none cursor-pointer"
                   />
@@ -151,6 +170,13 @@ export const Playground = () => {
                     <span>{control.min}</span>
                     <span>{control.max} {control.unit}</span>
                   </div>
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    className="text-red-500 mt-2 text-sm"
+                  >
+                    {control.roast(parameters[control.id])}
+                  </motion.div>
                 </motion.div>
               ))}
             </div>
@@ -165,13 +191,13 @@ export const Playground = () => {
                   <ResponsiveContainer width="100%" height="100%">
                     <LineChart data={simulationData}>
                       <CartesianGrid strokeDasharray="1 1" strokeWidth={1} stroke="#e5e7eb" />
-                      <XAxis 
-                        dataKey="time" 
+                      <XAxis
+                        dataKey="time"
                         label={{ value: 'Time (hours)', position: 'bottom' }}
                       />
                       <YAxis />
                       <Tooltip />
-                      <Line type="monotone" dataKey="ph" stroke="#3b82f6" strokeWidth={5}  name="pH" />
+                      <Line type="monotone" dataKey="ph" stroke="#3b82f6" strokeWidth={5} name="pH" />
                       <Line type="monotone" dataKey="dissolvedOxygen" stroke="#10b981" strokeWidth={5} name="DO" />
                       <Line type="monotone" dataKey="BOD" stroke="#f59e0b" strokeWidth={5} name="BOD" />
                       <Line type="monotone" dataKey="totalcoliform" stroke="#8b5cf6" strokeWidth={5} name="Total Coliform" />
