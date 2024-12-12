@@ -53,8 +53,8 @@ export const Charts = ({ data, parameter, setParameter, unit }) => {
           <LineChart data={data} margin={{ top: 10, right: 30, left: 20, bottom: 10 }}>
             <defs>
               <linearGradient id="colorValue" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor={getParameterColor()} stopOpacity={0.1}/>
-                <stop offset="95%" stopColor={getParameterColor()} stopOpacity={0}/>
+                <stop offset="5%" stopColor={getParameterColor()} stopOpacity={0.1} />
+                <stop offset="95%" stopColor={getParameterColor()} stopOpacity={0} />
               </linearGradient>
             </defs>
             <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
@@ -64,20 +64,20 @@ export const Charts = ({ data, parameter, setParameter, unit }) => {
               stroke="#64748b"
               fontSize={12}
             />
-            <YAxis 
-              stroke="#64748b" 
+            <YAxis
+              stroke="#64748b"
               fontSize={12}
-              label={{ 
-                value: unit, 
-                angle: -90, 
+              label={{
+                value: unit,
+                angle: -90,
                 position: 'insideLeft',
                 style: { textAnchor: 'middle', fill: '#64748b' }
               }}
             />
             <Tooltip
-              contentStyle={{ 
-                backgroundColor: '#fff', 
-                borderRadius: '0.5rem', 
+              contentStyle={{
+                backgroundColor: '#fff',
+                borderRadius: '0.5rem',
                 border: '1px solid #e5e7eb',
                 boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
               }}
@@ -93,6 +93,97 @@ export const Charts = ({ data, parameter, setParameter, unit }) => {
               activeDot={{ r: 6, strokeWidth: 2, fill: '#fff' }}
               fill="url(#colorValue)"
             />
+
+            {/* Threshold lines */}
+            {parameter === 'ph' && (
+              <>
+                <Line
+                  type="monotone"
+                  dataKey={() => 6.5}
+                  stroke="#facc15" // Yellow for lower limit
+                  strokeDasharray="5 5"
+                  strokeWidth={2}
+                  dot={false}
+                  name="Lower Limit"
+                />
+                <Line
+                  type="monotone"
+                  dataKey={() => 8.7}
+                  stroke="#ef4444" // Red for upper limit
+                  strokeDasharray="5 5"
+                  strokeWidth={2}
+                  dot={false}
+                  name="Upper Limit"
+                />
+              </>
+            )}
+            {parameter === 'dissolvedOxygen' && (
+              <>
+                <Line
+                  type="monotone"
+                  dataKey={() => 2}
+                  stroke="#facc15" // Yellow for lower limit
+                  strokeDasharray="5 5"
+                  strokeWidth={2}
+                  dot={false}
+                  name="Lower Limit"
+                />
+                <Line
+                  type="monotone"
+                  dataKey={() => 7}
+                  stroke="#facc15" // Yellow for lower limit
+                  strokeDasharray="5 5"
+                  strokeWidth={2}
+                  dot={false}
+                  name="Upper Limit"
+                />
+              </>
+              
+            )}
+            {parameter === 'BOD' && (
+              <>
+                <Line
+                  type="monotone"
+                  dataKey={() => 1.9}
+                  stroke="#facc15" // Yellow for lower limit
+                  strokeDasharray="5 5"
+                  strokeWidth={2}
+                  dot={false}
+                  name="Lower Limit"
+                />
+                <Line
+                  type="monotone"
+                  dataKey={() => 10.3}
+                  stroke="#ef4444" // Red for upper limit
+                  strokeDasharray="5 5"
+                  strokeWidth={2}
+                  dot={false}
+                  name="Upper Limit"
+                />
+              </>
+            )}
+            {parameter === 'totalcoliform' && (
+              <>
+                <Line
+                  type="monotone"
+                  dataKey={() => 0}
+                  stroke="#facc15" // Yellow for lower limit
+                  strokeDasharray="5 5"
+                  strokeWidth={2}
+                  dot={false}
+                  name="Lower Limit"
+                />
+                <Line
+                  type="monotone"
+                  dataKey={() => 501}
+                  stroke="#ef4444" // Red for upper limit
+                  strokeDasharray="5 5"
+                  strokeWidth={2}
+                  dot={false}
+                  name="Upper Limit"
+                />
+              </>
+            )}
           </LineChart>
         </ResponsiveContainer>
       </motion.div>
