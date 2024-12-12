@@ -131,7 +131,7 @@ export const Charts = ({ data, parameter, setParameter, unit }) => {
                 <Line
                   type="monotone"
                   dataKey={() => 7}
-                  stroke="#facc15" // Yellow for lower limit
+                  stroke="#ef4444" // Yellow for lower limit
                   strokeDasharray="5 5"
                   strokeWidth={2}
                   dot={false}

@@ -29,6 +29,7 @@ export const Playground = () => {
     setSimulationData(baseData);
   };
 
+  
   const resetSimulation = () => {
     setIsSimulating(false);
     setSimulationData([]);
@@ -84,7 +85,7 @@ export const Playground = () => {
       max: 1000,
       step: 10,
       icon: <Scale className="h-5 w-5 text-purple-500" />,
-      unit: 'MPN/100m',
+      unit: 'MPN/100ml',
       roast: (value) => {
         if (value > 950) return "This river’s got more germs than a toddler’s toy box! Swim at your own risk.";
         return null;
@@ -180,6 +181,7 @@ export const Playground = () => {
                 </motion.div>
               ))}
             </div>
+            
             <div className="bg-gray-700 w-full max-w-md mx-auto p-6 rounded-lg flex items-center shadow-lg h-60 mt-52 mb-24">
       <div className="flex flex-col">
         <h1 className="text-green-500 text-5xl font-bold mb-2">Good!</h1>
