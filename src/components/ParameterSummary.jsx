@@ -22,7 +22,7 @@ export const ParameterSummary = ({ data }) => {
       rotate: 0,
       transition: {
         type: "spring",
-        stiffness: 260,g
+        stiffness: 260,
         damping: 20
       }
     },
