@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Calendar, Clock, Droplets, Wind, Thermometer, Scale, Biohazard, Factory } from 'lucide-react';
+import Good from '../assets/good.png';
 
 export const ParameterSummary = ({ data }) => {
   const date = new Date(data.timestamp);
@@ -22,7 +23,7 @@ export const ParameterSummary = ({ data }) => {
       rotate: 0,
       transition: {
         type: "spring",
-        stiffness: 260,g
+        stiffness: 260,
         damping: 20
       }
     },
@@ -132,6 +133,14 @@ export const ParameterSummary = ({ data }) => {
             </motion.div>
           ))}
         </div>
+        <div className='text-5xl font-bold text-green-500 dark:text-emerald-400 mt-6 ml-5 '>
+          GOOD! 
+        </div>
+        <div className='text-lg text-sky-600 dark:text-sky-400 mt-4 ml-5'>
+          Water quality is within acceptable limits.<br />
+          Continue monitoring for any changes.
+        </div>
+        <img src={Good} alt="" className='ml-auto flex items-center justify-center mt-[-120px] mr-[89px]' width={150} height={150} />
       </div>
     </motion.div>
   );

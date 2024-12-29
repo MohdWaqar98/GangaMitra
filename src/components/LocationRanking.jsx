@@ -28,7 +28,7 @@ export const LocationRanking = ({ locations }) => {
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      className="bg-white dark:bg-gray-800 p- rounded-lg shadow-md"
+      className="bg-white dark:bg-gray-800 p-5 rounded-lg shadow-md"
     >
       <div className="flex items-center justify-between mb-6">
         <h2 className="text-xl font-semibold text-sky-900 dark:text-sky-100">Location Rankings</h2>
@@ -44,7 +44,7 @@ export const LocationRanking = ({ locations }) => {
           <motion.div
             key={location.id}
             variants={item}
-            className="flex items-center justify-between p-4 bg-sky-50 dark:bg-sky-900/30 rounded-lg"
+            className="flex items-center justify-between p-5 bg-sky-50 dark:bg-sky-900/30 rounded-lg"
           >
             <div className="flex items-center space-x-4">
               <span className="text-2xl font-bold text-sky-700 dark:text-sky-300">#{index + 1}</span>
