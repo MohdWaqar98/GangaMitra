@@ -44,7 +44,7 @@ export const LocationRanking = ({ locations }) => {
           <motion.div
             key={location.id}
             variants={item}
-            className="flex items-center justify-between p-4 bg-sky-50 dark:bg-sky-900/30 rounded-lg"
+            className="flex items-center justify-between p-5 bg-sky-50 dark:bg-sky-900/30 rounded-lg"
           >
             <div className="flex items-center space-x-4">
               <span className="text-2xl font-bold text-sky-700 dark:text-sky-300">#{index + 1}</span>
