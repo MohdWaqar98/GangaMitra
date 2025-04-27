@@ -28,7 +28,7 @@ export const LocationRanking = ({ locations }) => {
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      className="bg-white dark:bg-gray-800 p-5 rounded-lg shadow-md"
+      className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md"
     >
       <div className="flex items-center justify-between mb-6">
         <h2 className="text-xl font-semibold text-sky-900 dark:text-sky-100">Location Rankings</h2>
